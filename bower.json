@@ -1,0 +1,22 @@
+{
+  "name": "tinymce-plugin-inline-styles",
+  "version": "0.1.0",
+  "authors": [
+    "Rémi Becheras <rbecheras@sirap.fr>"
+  ],
+  "description": "An Plugin for the tinymce wysiwyg HTML editor that force styles to be defined inline for each element",
+  "main": "plugin.js",
+  "keywords": [
+    "tinymce",
+    "plugin",
+    "styles"
+  ],
+  "license": "LGPLv2.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
