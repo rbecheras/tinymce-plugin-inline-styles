@@ -1,0 +1,34 @@
+{
+  "name": "tinymce-plugin-inline-styles",
+  "version": "0.1.0",
+  "description": "An Plugin for the tinymce wysiwyg HTML editor that force styles to be defined inline for each element",
+  "main": "plugin.js",
+  "dependencies": {
+    "grunt-contrib-jshint": "^0.11.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.6.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.10.0",
+    "load-grunt-tasks": "^3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:sirap-group/tinymce-plugin-inline-styles.git"
+  },
+  "keywords": [
+    "tinymce",
+    "plugin",
+    "styles"
+  ],
+  "author": "Rémi Becheras <rbecheras@sirap.fr>",
+  "license": "LGPL-2.1",
+  "bugs": {
+    "url": "https://github.com/sirap-group/tinymce-plugin-inline-styles/issues"
+  },
+  "homepage": "https://github.com/sirap-group/tinymce-plugin-inline-styles#readme"
+}
