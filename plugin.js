@@ -99,6 +99,21 @@
 		 *      Currently this only applies to &amp;' -> &
 		 */
 		function san(html, pattern){
+			function sanitize(){
+					// get the start of what we will sanitize
+					var startIndex = remainingString.indexOf("\"");
+					// and the end
+					var endIndex = remainingString.indexOf("\"",startIndex+1);
+					// get the data to sanitize
+					var newHREF = html.substring(i+startIndex+1, i+endIndex+1);
+					// here we actually perform the replacement
+					newHREF = newHREF.replace(/&amp;/g, '&');
+					// add the pattern + the new data + a closing quote
+					var regExpStartLen = "/".length;
+					var regExpFlagsLen = "/i".length;
+					ret += String(pattern).substring( regExpStartLen, String(pattern).length - regExpFlagsLen) + newHREF;
+					i += endIndex;
+			}
 			var ret = "";
 			var remainingString;
 			var hrefIndex;
@@ -108,21 +123,7 @@
 				if( hrefIndex === 0 ){
 						// actually sanitize the pattern, i.e. href="[sanitize-candidate]"
 						// must be encapsulated within quotes, "
-						 (function (){
-								 // get the start of what we will sanitize
-								 var startIndex = remainingString.indexOf("\"");
-								 // and the end
-								 var endIndex = remainingString.indexOf("\"",startIndex+1);
-								 // get the data to sanitize
-								 var newHREF = html.substring(i+startIndex+1, i+endIndex+1);
-								 // here we actually perform the replacement
-								 newHREF = newHREF.replace(/&amp;/g, '&');
-								 // add the pattern + the new data + a closing quote
-								 var regExpStartLen = "/".length;
-								 var regExpFlagsLen = "/i".length;
-								 ret += String(pattern).substring( regExpStartLen, String(pattern).length - regExpFlagsLen) + newHREF;
-								 i += endIndex;
-						 })();
+						 sanitize();
 						 continue;
 				} else {
 						// if we have another href, copy everything until that href index
