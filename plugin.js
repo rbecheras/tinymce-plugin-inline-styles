@@ -140,14 +140,13 @@
 		}
 
 		function inlinifyOnEvent(evt){
-			console.info('inlinifing');
-			// console.log(evt);
 			var modified;
 			try{
 				modified = inlinify(evt.content);
 			} catch(e){
 				console.error("Inlining css stylesheets failed");
 				console.error(e);
+				console.error(e.stack);
 			}
 			if (modified) {
 				evt.content = '<!DOCTYPE html><html>'+ modified + '</html>';
