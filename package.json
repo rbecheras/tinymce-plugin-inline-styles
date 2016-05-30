@@ -1,6 +1,6 @@
 {
   "name": "tinymce-plugin-inline-styles",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "An Plugin for the tinymce wysiwyg HTML editor that force styles to be defined inline for each element",
   "main": "plugin.js",
   "devDependencies": {
