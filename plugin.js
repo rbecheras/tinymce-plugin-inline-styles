@@ -22,7 +22,7 @@ var jQuery = window.jQuery
       var cssObj = {}
       for (var _s in stylesArray) {
         var S = stylesArray[_s].split(':')
-        if (S[0].trim() === '' || S[1].trim() === '')continue
+        if (S[0].trim() === '' || S[1].trim() === '') continue
         cssObj[S[0].trim()] = S[1].trim()
       }
       return cssObj
@@ -39,7 +39,7 @@ var jQuery = window.jQuery
           for (var r in stylesheet.cssRules) {
             try {
               var rule = stylesheet.cssRules[r]
-              if (!isNaN(rule))break // make sure the rule exists
+              if (!isNaN(rule)) break // make sure the rule exists
               var $destObj = $out.find(rule.selectorText)
               var obj = rule.cssText.replace(rule.selectorText, '')
               obj = obj.replace('{', '').replace('}', '') // clean up the { and }'s
@@ -160,13 +160,15 @@ var jQuery = window.jQuery
       source_view = evt.source_view || false
     })
     editor.on('BeforeSetContent', function (evt) {
-      if (source_view) {
-        // fullcontent = evt.content
-        source_view = false
-        inlinifyOnEvent(evt)
-      } else if (!contentAllreadyLoaded && evt.content && evt.content.length) {
-        inlinifyOnEvent(evt)
-        contentAllreadyLoaded = true
+      if (!evt.ignoreInlinify) {
+        if (source_view) {
+          // fullcontent = evt.content
+          source_view = false
+          inlinifyOnEvent(evt)
+        } else if (!contentAllreadyLoaded && evt.content && evt.content.length) {
+          inlinifyOnEvent(evt)
+          contentAllreadyLoaded = true
+        }
       }
     })
   })
