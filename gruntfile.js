@@ -2,8 +2,10 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt)
 
   grunt.initConfig({
-    jshint: {
-      all: ['gruntfile.js', 'plugin.js']
+    standard: {
+      options: { format: false },
+      gruntfile: { src: ['gruntfile.js'] },
+      plugin: { src: ['plugin.js'] }
     },
     uglify: {
       dist: {
@@ -32,5 +34,5 @@ module.exports = function (grunt) {
     }
   })
 
-  grunt.registerTask('default', ['jshint', 'uglify'])
+  grunt.registerTask('default', ['standard', 'uglify'])
 }
